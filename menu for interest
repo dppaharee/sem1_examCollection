@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<conio.h>
+int main()
+{
+	char choice;
+	int p,t;
+	float I,r;
+	FLAG:
+	printf("\tMenu\na. Simple Interest\nb. Compound Interest\nc. Exit\n");
+	fflush(stdin);
+	scanf("%c",&choice);
+	switch(choice)
+	{
+		case 'a':
+		{
+			printf("\nenter principle,rate and interest:");
+			scanf("%d %f %d",&p,&r,&t);
+			I=(p*t*r)/100;
+			printf("\nyour simple interest is: %.2f",I);
+			break;
+		}
+		case 'b':
+		{
+			printf("\nenter principle,rate and interest:");
+			scanf("%d %f %d",&p,&r,&t);
+			I=p*pow(1+r/100,t);
+			printf("\nyour compound interest is: %.2f",I);
+			break;
+		}
+		case 'c':
+		{
+			printf("thankyou");
+			exit(0);
+		}
+		default:
+		{
+			printf("incorrect input please enter a valid input\n");
+			goto FLAG;
+		}
+	}
+	return 0;
+}
